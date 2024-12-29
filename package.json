@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AdiWijaya5/PersonalWeb-expres.git"
+    "url": "git+https://github.com/AdiWijaya5/b59-task-adi-wijaya.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/AdiWijaya5/PersonalWeb-expres/issues"
+    "url": "https://github.com/AdiWijaya5/b59-task-adi-wijaya/issues"
   },
-  "homepage": "https://github.com/AdiWijaya5/PersonalWeb-expres#readme",
+  "homepage": "https://github.com/AdiWijaya5/b59-task-adi-wijaya#readme",
   "dependencies": {
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
