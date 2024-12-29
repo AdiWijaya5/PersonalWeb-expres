@@ -1,0 +1,127 @@
+{{#>layout title="Add Project"}}
+    <main>
+      <section class="blog-form">
+        <form action="/myproject" method="post"  class="container-form">
+          <h1 class="section-title">ADD MY PROJECT</h1>
+          <div class="from-field">
+            <label for="input-project-title" class="form-label"
+              >Project Name</label
+            >
+            <input
+              id="inputTitle"
+              name="inputTitle"
+              class="form-input"
+              type="text"
+              placeholder="Enter Name Project"
+              required
+            />
+          </div>
+          {{!-- <div class="column">
+            <div class="input-box">
+              <label for="input-blog-date-start" class="form-label"
+                >Start Date</label
+              >
+              <input
+                id="dateStart"
+                name="dateStart"
+                class="form-input-date"
+                type="date"
+                required
+              />
+            </div>
+            <div class="input-box">
+              <label for="input-blog-date-end" class="form-label"
+                >End Date</label
+              >
+              <input
+                id="dateEnd"
+                name="dateEnd"
+                class="form-input-date"
+                type="date"
+                required
+              />
+            </div>
+          </div> --}}
+          <div class="from-field">
+            <label class="form-label" for="input-project-content"
+              >Description</label
+            >
+            <textarea
+              id="inputContent"
+              name="inputContent"
+              class="form-input"
+              rows="8"
+              required
+            ></textarea>
+          </div>
+
+          <div class="checkbox_input" required>
+            <label class="form-label" for="input-blog-content"
+              >Technologies</label
+            >
+            <div class="column">
+              <div class="checkbox_input">
+                <input
+                  class="checkbox"
+                  type="checkbox"
+                  id="Agular"
+                  name="Agular"
+                  value="Agular"
+                />
+                <label for="Agular">Agular</label><br />
+                <input
+                  class="checkbox"
+                  type="checkbox"
+                  id="nodeJs"
+                  name="nodeJs"
+                  value="NodeJs"
+                />
+                <label for="nodeJs"> Node Js</label><br />
+              </div>
+              <div class="checkbox_input">
+                <input
+                  class="checkbox"
+                  type="checkbox"
+                  id="react"
+                  name="react"
+                  value="React"
+                />
+                <label for="react"> React</label><br />
+                <input
+                  class="checkbox"
+                  type="checkbox"
+                  id="vueJs"
+                  name="vueJs"
+                  value="VueJs"
+                />
+                <label for="vueJs"> Vue Js</label><br />
+              </div>
+              </div>
+            </div>
+          <div class="from-field">
+            <label for="input-project-image" class="form-label"
+              >Upload Image</label
+            >
+            <div class="input-blog-image-group">
+              <label for="input-project-image">
+                <p>choose</p>
+                <img class="fileImg" src="/assets/img/file.png" />
+              </label>
+              <input
+                id="input-project-image"
+                name="image"
+                class="form-input"
+                type="file"
+                placeholder="title"
+                hidden
+              />
+            </div>
+          </div>
+
+          <div class="button-group">
+            <button class="from-submit-button" type="submit">submit</button>
+          </div>
+        </form>
+      </section>
+    </main>
+{{/layout }}

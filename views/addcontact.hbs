@@ -1,0 +1,71 @@
+{{#>layout title="AddContact"}}
+    <main class="contact-section">
+      <form id="contactFrom" class="contact-froms">
+        <h1>GET IN TOUCH</h1>
+        <div class="from-field">
+          <label for="name">Name</label>
+          <input
+            id="name"
+            name="name"
+            class="form-input"
+            type="text"
+            required
+          />
+        </div>
+
+        <div class="from-field">
+          <label for="email">Email</label>
+          <input
+            id="email"
+            name="email"
+            class="form-input"
+            type="email"
+            required
+          />
+        </div>
+
+        <div class="from-field">
+          <label for="phoneNumber">Phone Number</label>
+          <input
+            id="phoneNumber"
+            name="phoneNumber"
+            class="form-input"
+            type="number"
+            required
+          />
+        </div>
+
+        <div class="from-field">
+          <label for="subject">Subject</label>
+          <input
+            id="subject"
+            name="subject"
+            class="form-input"
+            type="text"
+            rows="8"
+            required
+          />
+        </div>
+
+        <div class="from-field">
+          <label for="skill">Sekill</label>
+          <select id="skill" name="skill" class="form-input" required>
+            <option></option>
+            <option value="frontend">FrontEnd</option>
+            <option value="backend">BackEnd</option>
+          </select>
+        </div>
+
+        <div class="from-field">
+          <label for="message">Your Message</label>
+          <textarea id="message" name="massage" type="text" required>
+          </textarea>
+        </div>
+
+        <button class="from-submit-button" type="submit">
+          submit
+        </button>
+      </form>
+    </main>
+
+{{/layout}}
