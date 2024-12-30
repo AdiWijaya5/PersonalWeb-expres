@@ -22,11 +22,11 @@ function getRelativeTime(targetDate) {
   // console.log(diffInSeconds);
 
   if (diffInSeconds < 60) {
-    return `Durasi : ${diffInSeconds} second${diffInSeconds > 1 ? 's' : ''} ago`;
+    return `Upload : ${diffInSeconds} second${diffInSeconds > 1 ? 's' : ''} ago`;
   }
   let diffInMinutes = Math.floor(diffInSeconds / 60);
   if (diffInMinutes < 60) {
-    return `Durasi : ${diffInMinutes} minute${diffInMinutes > 1 ? 's' : ''} ago`;
+    return `Upload : ${diffInMinutes} minute${diffInMinutes > 1 ? 's' : ''} ago`;
   }
   let diffInHours = Math.floor(diffInMinutes / 60);
   if (diffInHours < 24) {

@@ -36,17 +36,19 @@
                 <input
                   class="checkbox"
                   type="checkbox"
-                  id="Agular"
-                  name="Agular"
+                  id="agular"
+                  name="agular"
                   value="Agular"
+                  {{#if agular}} checked {{/if}}
                 />
-                <label for="Agular">Agular</label><br />
+                <label for="agular">Agular</label><br />
                 <input
                   class="checkbox"
                   type="checkbox"
                   id="nodeJs"
                   name="nodeJs"
                   value="NodeJs"
+                  {{#if nodeJs}} checked {{/if}}
                 />
                 <label for="nodeJs"> Node Js</label><br />
               </div>
@@ -57,6 +59,7 @@
                   id="react"
                   name="react"
                   value="React"
+                  {{#if react}} checked {{/if}}
                 />
                 <label for="react"> React</label><br />
                 <input
@@ -64,7 +67,8 @@
                   type="checkbox"
                   id="vueJs"
                   name="vueJs"
-                  value="VueJs"
+                  value="vueJs"
+                  {{#if vueJs}} checked {{/if}}
                 />
                 <label for="vueJs"> Vue Js</label><br />
               </div>

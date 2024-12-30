@@ -68,7 +68,17 @@ async function renderEditProject(req, res) {
   const query = `SELECT * FROM public."Blogs" WHERE id = ${id}`;
   const project = await sequelize.query(query, { type: QueryTypes.SELECT });
 
-  res.render('edit-project', { data: project[0] });
+  const ckt = req.query.tech;
+  console.log(ckt);
+
+  const tech = project[0].teknologi;
+
+  const agular = tech.includes('Agular');
+  const nodeJs = tech.includes('NodeJs');
+  const react = tech.includes('React');
+  const vueJs = tech.includes('vueJs');
+
+  res.render('edit-project', { data: project[0], agular, nodeJs, react, vueJs });
 }
 
 async function updateProject(req, res) {
