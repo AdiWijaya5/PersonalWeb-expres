@@ -23,7 +23,6 @@ async function renderProjectDetail(req, res) {
   const query = `SELECT * FROM public."Blogs" WHERE id = ${id}`;
   const project = await sequelize.query(query, { type: QueryTypes.SELECT });
 
-  // console.log('hasil query :', project[0]);
   res.render('project-detail', { data: project[0] });
 }
 
@@ -32,15 +31,29 @@ function renderaddproject(req, res) {
 }
 
 async function addBlog(req, res) {
-  const { inputTitle, inputContent, dateStart, dateEnd, arrChechbox } = req.body;
-  console.log('from submitted');
+  const { inputTitle, inputContent, image, dateStart, dateEnd } = req.body;
+  const { agular, nodeJs, react, vueJs } = req.body;
 
-  const image = 'https://picsum.photos/200/300';
+  let checkBox = [];
+  if (agular) {
+    checkBox.push(agular);
+  }
+  if (nodeJs) {
+    checkBox.push(nodeJs);
+  }
+  if (react) {
+    checkBox.push(react);
+  }
+  if (vueJs) {
+    checkBox.push(vueJs);
+  }
+
+  // const image = 'https://picsum.photos/200/300';
 
   const query = `INSERT INTO public."Blogs"
-                (title, content, image)
+                (title, content, image, teknologi)
                 VALUES
-                ('${inputTitle}',' ${inputContent}', '${image}')  
+                ('${inputTitle}', '${inputContent}', '${image}', '${checkBox}')  
   `;
 
   const result = await sequelize.query(query, { type: QueryTypes.INSERT });
@@ -55,17 +68,36 @@ async function renderEditProject(req, res) {
   const query = `SELECT * FROM public."Blogs" WHERE id = ${id}`;
   const project = await sequelize.query(query, { type: QueryTypes.SELECT });
 
-  // console.log('hasil query :', project[0]);
-  res.render('edit-project', { data: project[0], id: id });
+  res.render('edit-project', { data: project[0] });
 }
 
 async function updateProject(req, res) {
   const { id } = req.params;
-  const { inputTitle, inputContent, dateStart, dateEnd } = req.body;
+  const img = req.query.image;
+  let { inputTitle, inputContent, image } = req.body;
+  const { agular, nodeJs, react, vueJs } = req.body;
+
+  if (image == '') {
+    image = img;
+  }
+
+  let checkBox = [];
+  if (agular) {
+    checkBox.push(agular);
+  }
+  if (nodeJs) {
+    checkBox.push(nodeJs);
+  }
+  if (react) {
+    checkBox.push(react);
+  }
+  if (vueJs) {
+    checkBox.push(vueJs);
+  }
 
   const query = `UPDATE public."Blogs"
-                  SET Blogs title, content,   
-                  WHERE ${id} ,${title}, ${content}`;
+                  SET title ='${inputTitle}', content ='${inputContent}', image ='${image}', teknologi ='${checkBox}' 
+                 WHERE id = ${id}`;
 
   const result = await sequelize.query(query, { type: QueryTypes.UPDATE });
 

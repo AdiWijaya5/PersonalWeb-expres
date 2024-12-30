@@ -10,7 +10,7 @@
           {{#each projects}}
           <div id="${i}" class="d-flex justify-content-center my-3">
             <div class="card p-3 col mx-0" style="background-color: #f0ccc0;">
-              <img src="{{this.image}}" class="card-img-top" style="height: 200px;" alt="blog-image" />
+              <img src="/assets/img/{{ this.image }}" class="card-img-top" style="height: 200px;" alt="blog-image" />
                 <div class="card-body px-0" >
                    <a href="/project-detail/{{this.id}}" class="blog-item-title fw-bold">
                    {{this.title}} 
@@ -26,17 +26,19 @@
                   </p>
                   </div>
                   <div class="text-start">
+                    <p>Technology</p>
                   <div class="icone-f">
-                    <i class="fa-brands fa-js"></i>
+                    <p>{{ this.teknologi }}</p>
+                    {{!-- <i class="fa-brands fa-js"></i>
                     <i class="fa-brands fa-angular"></i>
                     <i class="fa-brands fa-react"></i>
-                    <i class="fa-brands fa-vuejs"></i>
+                    <i class="fa-brands fa-vuejs"></i> --}}
                   </div>
                   </div>
                   <div class="text-center">
-                    <a href="/edit-project/{{this.id}}" class="btn-edit">Edit</a>
+                    <a href="/edit-project/{{this.id}}?image={{ this.image }}" class="btn-edit">Edit</a>
                     <form action="/delet-project/{{this.id}}?_method=DELETE" method="post" style="display: inline;">
-                    <button onclick="return confrim submitResult(event)" type="submit" class="btn-delet">Delete</button>
+                    <button onclick="archiveFunction()" type="submit" class="btn-delet">Delete</button>
                     </form>
                   </div>
                 </div>
@@ -48,6 +50,8 @@
         </div>
       </section>
     </main>
+    <script src="/assets/javascript/btn.js" ></script>
+    <script src="/assets/javascript/sweetalert.min.js" ></script>
 {{/layout }}
 
 

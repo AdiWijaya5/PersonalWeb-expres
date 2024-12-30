@@ -1,7 +1,7 @@
 {{#>layout title="Edit Project"}}
     <main>
       <section class="blog-form">
-        <form action="/update-project/{{id}}?_method=PATCH" method="post" class="container-form">
+        <form action="/update-project/{{data.id}}?_method=PATCH&image={{ data.image }}" method="post" class="container-form">
           <h1 class="section-title">Edit MY PROJECT</h1>
           <div class="from-field">
             <label for="input-project-title" class="form-label"
@@ -24,14 +24,12 @@
               id="inputContent"
               name="inputContent"
               class="form-input"
-              rows="8"
-              required>
-              {{data.content}}</textarea>
+              rows="8">{{data.content}}</textarea>
           </div>
 
           <div class="checkbox_input" required>
             <label class="form-label" for="input-blog-content"
-              >Technologies</label
+              >Technology</label
             >
             <div class="column">
               <div class="checkbox_input">
@@ -93,10 +91,12 @@
           </div>
 
           <div class="button-group">
-            <button class="from-submit-button" type="submit">Save Project</button>
+            <button onclick="buttonsave()" class="from-submit-button" type="submit">Save Project</button>
           </div>
         </form>
       </section>
     </main>
+    <script src="/assets/javascript/btn.js" ></script>
+    <script src="/assets/javascript/sweetalert.min.js" ></script>
     
 {{/layout }}

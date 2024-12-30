@@ -4,14 +4,13 @@
      <div class='project-detail-content' style="max-width: 840px;">
       <div class="row g-0">
     <div class="col-md-4">
-      <img src="{{ data.image }}" class="project-img img-fluid rounded-start"  alt="image-poject">
+      <img src="/assets/img/{{ data.image }}" class="project-img img-fluid rounded-start"  alt="image-poject">
     </div>
     <div class="col-md-8">
       <div class="card-body" style="gap: 20px;">
         <h5 class="card-title">{{data.title}}</h5>
           <p class="card-text">{{data.content}}</p>
           <p>{{formatDateToWIB data.createdAt}} </p>
-          <a href='https://adiwijaya5.github.io/Calculator/' class='button'><span>details</span></a>
         <div class="card-text">
           <div class="icone-f">
           <i class="fa-brands fa-js"></i>

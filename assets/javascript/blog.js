@@ -11,11 +11,11 @@
 //     return alert('All input fields cannot be empty');
 //   }
 
-//   let arrChechbox = [];
-//   let checkBox = document.querySelectorAll("input[type='checkbox']:checked");
-//   for (let i = 0; i < checkBox.length; i++) {
-//     arrChechbox.push(checkBox[i].value);
-//   }
+let arrChechbox = [];
+let checkBox = document.querySelectorAll("input[type='checkbox']:checked");
+for (let i = 0; i < checkBox.length; i++) {
+  arrChechbox.push(checkBox[i].value);
+}
 
 //   let dateEnd = document.querySelector('input[type="date"]').value;
 //   let image = URL.createObjectURL(imageInput.files[0]);
