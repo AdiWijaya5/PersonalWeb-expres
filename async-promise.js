@@ -104,31 +104,31 @@
 
 // PROMISE NODE JS //
 
-function proses1() {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      console.log('proses pertama');
-      resolve();
-    }, 3000);
-  });
-}
-function proses2() {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      console.log('proses kedua');
-      resolve();
-      reject('Ada Yang Salah di peroses 2');
-    }, 2000);
-  });
-}
-function proses3() {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      console.log('proses ketiga');
-      resolve();
-    }, 1000);
-  });
-}
+// function proses1() {
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       console.log('proses pertama');
+//       resolve();
+//     }, 3000);
+//   });
+// }
+// function proses2() {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       console.log('proses kedua');
+//       resolve();
+//       reject('Ada Yang Salah di peroses 2');
+//     }, 2000);
+//   });
+// }
+// function proses3() {
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       console.log('proses ketiga');
+//       resolve();
+//     }, 1000);
+//   });
+// }
 
 // async //
 
@@ -139,14 +139,14 @@ function proses3() {
 
 // async try, catch //
 
-async function executeProcesses() {
-  try {
-    await proses1();
-    await proses2();
-    await proses3();
-  } catch (error) {
-    console.error('Error:', error);
-  }
-}
+// async function executeProcesses() {
+//   try {
+//     await proses1();
+//     await proses2();
+//     await proses3();
+//   } catch (error) {
+//     console.error('Error:', error);
+//   }
+// }
 
-executeProcesses();
+// executeProcesses();

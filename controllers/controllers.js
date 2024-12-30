@@ -8,13 +8,13 @@ function renderHome(req, res) {
   res.render('index');
 }
 // BLOGS
-let projects = [];
 
 async function rendermyproject(req, res) {
   const query = `SELECT * FROM public."Blogs" ORDER By "createdAt" DESC`;
   const projects = await sequelize.query(query, { type: QueryTypes.SELECT });
 
   console.log(projects);
+
   res.render('myproject', { projects: projects });
 }
 

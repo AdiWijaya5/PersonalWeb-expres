@@ -19,7 +19,7 @@ function formatDateToWIB(date) {
 function getRelativeTime(targetDate) {
   let now = new Date();
   let diffInSeconds = Math.floor((now - targetDate) / 1000);
-  console.log(diffInSeconds);
+  // console.log(diffInSeconds);
 
   if (diffInSeconds < 60) {
     return `Durasi : ${diffInSeconds} second${diffInSeconds > 1 ? 's' : ''} ago`;
