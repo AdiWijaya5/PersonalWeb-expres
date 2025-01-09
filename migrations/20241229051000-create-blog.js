@@ -9,16 +9,31 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
+      user_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Users',
+          key: 'id',
+        },
+        onDelete: 'SET NULL',
+        onUpdate: 'CASCADE',
+      },
       title: {
         type: Sequelize.STRING,
       },
       content: {
         type: Sequelize.TEXT,
       },
-      image: {
+      startDate: {
+        type: Sequelize.STRING,
+      },
+      endDate: {
         type: Sequelize.STRING,
       },
       teknologi: {
+        type: Sequelize.STRING,
+      },
+      image: {
         type: Sequelize.STRING,
       },
       createdAt: {

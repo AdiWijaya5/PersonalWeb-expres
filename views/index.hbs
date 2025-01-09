@@ -1,4 +1,4 @@
-  {{#> layout title="Home"}}
+  {{#> layout title="Home" users=users}}
     <div class='cotainer'>
       <div class='cotainer-card'>
         <div class='card-list'>
@@ -34,12 +34,24 @@
             </div>
           </div>
         </div>
+        <script src="/assets/javascript/btn.js"></script>
+        <script src="/assets/javascript/sweetalert.min.js" ></script>
         <script src='/assets/javascript/vanila-tilt.js'></script>
         <script src='/assets/javascript/navbar.js'></script>
         <script src='https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js'></script>
         <script>
           var template = Handlebars.compile("Handlebars <b>{{doesWhat}}</b>"); console console.log(template({ doesWhat: "rocks!" }));
         </script>
+       {{#if messages.error}}
+            <script>
+                alertError('{{messages.error}}')
+            </script>
+        {{/if}}
+        {{#if messages.success}}
+            <script>
+                alertSuccess('{{messages.success}}')
+            </script>
+        {{/if}}
       </div>
     </div>
   {{/layout}}

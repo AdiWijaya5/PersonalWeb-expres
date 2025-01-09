@@ -15,7 +15,6 @@ function formatDateToWIB(date) {
 
   return formattedDate;
 }
-
 function getRelativeTime(targetDate) {
   let now = new Date();
   let diffInSeconds = Math.floor((now - targetDate) / 1000);

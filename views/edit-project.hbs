@@ -1,7 +1,7 @@
 {{#>layout title="Edit Project"}}
     <main>
       <section class="blog-form">
-        <form action="/update-project/{{data.id}}?_method=PATCH&image={{ data.image }}" method="post" class="container-form">
+        <form action="/update-project/{{data.id}}?_method=PATCH" method="post" enctype="multipart/form-data"  class="container-form">
           <h1 class="section-title">Edit MY PROJECT</h1>
           <div class="from-field">
             <label for="input-project-title" class="form-label"
@@ -15,6 +15,32 @@
               value="{{data.title}}"
               required
             />
+          </div>
+          <div class="column">
+            <div class="input-box">
+              <label for="input-blog-date-start" class="form-label"
+                >Start Date</label
+              >
+              <input
+                id="dateStart"
+                name="dateStart"
+                class="form-input-date"
+                type="date"
+                value="{{data.startDate}}"
+              />
+            </div>
+            <div class="input-box">
+              <label for="input-blog-date-end" class="form-label"
+                >End Date</label
+              >
+              <input
+                id="dateEnd"
+                name="dateEnd"
+                class="form-input-date"
+                type="date"
+                value="{{data.endDate}}"
+              />
+            </div>
           </div>
           <div class="from-field">
             <label class="form-label" for="input-project-content"
@@ -36,12 +62,12 @@
                 <input
                   class="checkbox"
                   type="checkbox"
-                  id="agular"
-                  name="agular"
-                  value="Agular"
-                  {{#if agular}} checked {{/if}}
+                  id="angular"
+                  name="angular"
+                  value="Angular"
+                  {{#if angular}} checked {{/if}}
                 />
-                <label for="agular">Agular</label><br />
+                <label for="angular">angular</label><br />
                 <input
                   class="checkbox"
                   type="checkbox"
@@ -67,7 +93,7 @@
                   type="checkbox"
                   id="vueJs"
                   name="vueJs"
-                  value="vueJs"
+                  value="VueJs"
                   {{#if vueJs}} checked {{/if}}
                 />
                 <label for="vueJs"> Vue Js</label><br />
@@ -78,13 +104,16 @@
             <label for="input-project-image" class="form-label"
               >Upload Image</label
             >
+          <div class="mt-2">
+            <img id="preview" src="{{ data.image }}" class="img-thumbnail" style="max-height: 150px;">
+          </div>
             <div class="input-blog-image-group">
-              <label for="input-project-image">
+              <label for="image">
                 <p>choose</p>
                 <img class="fileImg" src="/assets/img/file.png" />
               </label>
               <input
-                id="input-project-image"
+                id="image"
                 name="image"
                 class="form-input"
                 type="file"
@@ -99,8 +128,22 @@
           </div>
         </form>
       </section>
-    </main>
-    <script src="/assets/javascript/btn.js" ></script>
+      <script src="/assets/javascript/image-preview.js"></script>
+       <script src="/assets/javascript/btn.js" ></script>
     <script src="/assets/javascript/sweetalert.min.js" ></script>
-    
+    {{#if messages.error}}
+      <script>
+        alertError('{{messages.error}}')
+      </script>
+    {{/if}}
+    {{#if messages.success}}
+      <script>
+        alertSuccess('{{messages.success}}')
+      </script>
+    {{/if}}
+    {{#if messages.question}}
+      <script>
+        buttonsave('{{messages.question}}')
+      </script>
+    {{/if}}
 {{/layout }}

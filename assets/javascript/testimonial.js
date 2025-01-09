@@ -1,33 +1,33 @@
 let testimonials = [
   {
-    author: 'Leo G',
+    author: 'Moh Ali',
     rating: 5,
-    content: 'Keren banget websitenya!',
-    image: 'blog-img.png',
+    content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+    image: 'bog-img.png',
   },
   {
-    author: 'Nur M Arofiq',
+    author: 'Adam',
     rating: 4,
-    content: 'Mantaapp! Terima kasih.',
-    image: 'blog-img.png',
+    content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+    image: 'bog-img.png',
   },
   {
-    author: 'Rendy Zulfan',
+    author: 'Messi',
     rating: 3,
     content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea reiciendis qui molestias blanditiis inventore reprehenderit nesciunt sequi pariatur quaerat? Error?',
-    image: 'blog-img.png',
+    image: 'bog-img.png',
   },
   {
     author: 'Syifa Maulaya',
     rating: 4,
     content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, commodi obcaecati necessitatibus totam reprehenderit fuga.',
-    image: 'blog-img.png',
+    image: 'bog-img.png',
   },
   {
     author: 'Pandu Rizky',
     rating: 5,
-    content: 'Keren bener gannn',
-    image: 'blog-img.png',
+    content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+    image: 'bog-img.png',
   },
 ];
 

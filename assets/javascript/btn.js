@@ -69,3 +69,50 @@ function buttonsaveadd() {
     form.submit();
   }, 1500);
 }
+
+function alertError(messages) {
+  Swal.fire({
+    position: 'center',
+    icon: 'error',
+    title: messages,
+    showConfirmButton: false,
+    timer: 1500,
+  });
+}
+function alertSuccess(messages) {
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    title: messages,
+    showConfirmButton: false,
+    timer: 1500,
+  });
+}
+
+function buttonlogout() {
+  event.preventDefault();
+  var form = event.target.form;
+  Swal.fire({
+    title: 'Are you sure?',
+    text: 'log out of account?',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, Log out',
+  }).then((result) => {
+    if (result.value) {
+      Swal.fire({
+        title: 'log out',
+        text: 'success',
+        position: 'center',
+        icon: 'success',
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      setTimeout(() => {
+        form.submit();
+      }, 1500);
+    }
+  });
+}

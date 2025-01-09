@@ -8,6 +8,12 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
+      Blog.belongsTo(models.User, {
+        foreignKey: 'user_id',
+        as: 'user',
+        onDelete: 'SET NULL',
+        onUpdate: 'CASCADE',
+      });
       // define association here
     }
   }
@@ -15,6 +21,8 @@ module.exports = (sequelize, DataTypes) => {
     {
       title: DataTypes.STRING,
       content: DataTypes.TEXT,
+      startDate: DataTypes.STRING,
+      endDate: DataTypes.STRING,
       image: DataTypes.STRING,
       teknologi: DataTypes.STRING,
     },

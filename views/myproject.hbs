@@ -1,44 +1,45 @@
-{{#>layout title="My Project"}}
+{{#>layout title="My Project" users=users}}
     <main>
       <section class="mb-5">
         <div class=" container text-center">
         <h1 class='text-center'style="  font-family: 'Poppins', sans-serif; color: #ea1d6f; ">MY PROJECT</h1>  
-        <a  id="btnAdd" class="My-circle" href="/add-project"><span>New Blog</span></a>
+        {{#if users}}
+        <a id="btnAdd" class="My-circle" href="/add-project"><span>New Blog</span></a>
+        {{/if}}
         </div>
         <div id="blogList" class="container-fluid mx-auto px-5 mt-4 row row-cols-md-3">
-          
           {{#each projects}}
           <div id="${i}" class="d-flex justify-content-center my-3">
-            <div class="card p-3 col mx-0" style="background-color: #f0ccc0;">
-              <img src="/assets/img/{{ this.image }}" class="card-img-top" style="height: 200px;" alt="blog-image" />
+            <div class="card p-3 col mx-0" style="background-color: #d9e2f0;">
+              <img src="{{ this.image }}" class="card-img-top" style="height: 200px;" alt="project-image" />
                 <div class="card-body px-0" >
                    <a href="/project-detail/{{this.id}}" class="blog-item-title fw-bold">
-                   {{this.title}} 
-                   {{!-- | {{this.dateend}} --}}
+                   {{this.title}} - {{ this.user.username}}
                   </a>
-                  <p >{{formatDateToWIB this.createdAt}}  </p>
-                  <p class="relative-time" style="color: black;">
-                   {{getRelativeTime this.updatedAt}}
-                  </p>
-                  <div class="overflow-scroll" style="height: 100px">
+                  <p >{{formatDateToWIB this.createdAt}}</p>
+                  <div>
                   <p class="blog-text-content">
-                    {{this.content}}
+                    {{truncateText this.content}}
                   </p>
                   </div>
                   <div class="text-start">
-                  <div class="icone-f">
-                    <p>{{ this.teknologi }}</p>
-                    {{!-- <i class="fa-brands fa-js"></i>
-                    <i class="fa-brands fa-angular"></i>
-                    <i class="fa-brands fa-react"></i>
-                    <i class="fa-brands fa-vuejs"></i> --}}
+                   <div class="icone-f">
+                    {{ this.teknologi}}
                   </div>
+                  <div class="text-end">
+                  <p class="relative-time" style=" text-align: right;">
+                   {{getRelativeTime this.updatedAt}}
+                  <p style=" text-align: right;" > Last edit : {{formatDateToWIB this.updatedAt}}</p>
+                  </div>
+                  </p>
                   </div>
                   <div class="text-center">
+                    {{#if (equal ../users.id this.user_id)}}
                     <a href="/edit-project/{{this.id}}?image={{ this.image }}" class="btn-edit">Edit</a>
                     <form action="/delet-project/{{this.id}}?_method=DELETE" method="post" style="display: inline;">
                     <button onclick="archiveFunction()" type="submit" class="btn-delet">Delete</button>
                     </form>
+                    {{/if}}
                   </div>
                 </div>
               </div>
@@ -48,9 +49,24 @@
           {{/each}}
         </div>
       </section>
+        <script src="/assets/javascript/btn.js" ></script>
+        <script src="/assets/javascript/sweetalert.min.js" ></script>
+        {{#if messages.error}}
+          <script>
+            alertError('{{messages.error}}')
+          </script>
+        {{/if}}
+        {{#if messages.success}}
+          <script>
+            alertSuccess('{{messages.success}}')
+          </script>
+        {{/if}}
+        {{#if messages.question}}
+          <script>
+            buttonsave('{{messages.question}}')
+          </script>
+        {{/if}}
     </main>
-    <script src="/assets/javascript/btn.js" ></script>
-    <script src="/assets/javascript/sweetalert.min.js" ></script>
 {{/layout }}
 
 

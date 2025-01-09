@@ -31,12 +31,12 @@ function renderaddproject(req, res) {
 }
 
 async function addBlog(req, res) {
-  const { inputTitle, inputContent, image, dateStart, dateEnd } = req.body;
-  const { agular, nodeJs, react, vueJs } = req.body;
+  const { inputTitle, inputContent, dateStart, dateEnd, image } = req.body;
+  const { angular, nodeJs, react, vueJs } = req.body;
 
   let checkBox = [];
-  if (agular) {
-    checkBox.push(agular);
+  if (angular) {
+    checkBox.push(angular);
   }
   if (nodeJs) {
     checkBox.push(nodeJs);
@@ -51,10 +51,9 @@ async function addBlog(req, res) {
   // const image = 'https://picsum.photos/200/300';
 
   const query = `INSERT INTO public."Blogs"
-                (title, content, image, teknologi)
+                (title, content, "startDate", "endDate", teknologi, image)
                 VALUES
-                ('${inputTitle}', '${inputContent}', '${image}', '${checkBox}')  
-  `;
+                ('${inputTitle}', '${inputContent}', '${dateStart}', '${dateEnd}', '${checkBox}','${image}') `;
 
   const result = await sequelize.query(query, { type: QueryTypes.INSERT });
 
@@ -73,27 +72,27 @@ async function renderEditProject(req, res) {
 
   const tech = project[0].teknologi;
 
-  const agular = tech.includes('Agular');
+  const angular = tech.includes('Angular');
   const nodeJs = tech.includes('NodeJs');
   const react = tech.includes('React');
-  const vueJs = tech.includes('vueJs');
+  const vueJs = tech.includes('VueJs');
 
-  res.render('edit-project', { data: project[0], agular, nodeJs, react, vueJs });
+  res.render('edit-project', { data: project[0], angular, nodeJs, react, vueJs });
 }
 
 async function updateProject(req, res) {
   const { id } = req.params;
   const img = req.query.image;
-  let { inputTitle, inputContent, image } = req.body;
-  const { agular, nodeJs, react, vueJs } = req.body;
+  let { inputTitle, inputContent, dateStart, dateEnd, image } = req.body;
+  const { angular, nodeJs, react, vueJs } = req.body;
 
   if (image == '') {
     image = img;
   }
 
   let checkBox = [];
-  if (agular) {
-    checkBox.push(agular);
+  if (angular) {
+    checkBox.push(angular);
   }
   if (nodeJs) {
     checkBox.push(nodeJs);
@@ -106,7 +105,7 @@ async function updateProject(req, res) {
   }
 
   const query = `UPDATE public."Blogs"
-                  SET title ='${inputTitle}', content ='${inputContent}', image ='${image}', teknologi ='${checkBox}' 
+                  SET title ='${inputTitle}', content ='${inputContent}', "startDate"='${dateStart}', "endDate"= '${dateEnd}', teknologi ='${checkBox}', image ='${image}'
                  WHERE id = ${id}`;
 
   const result = await sequelize.query(query, { type: QueryTypes.UPDATE });
@@ -144,7 +143,6 @@ function rendererror(res, req) {
 function render404(req, res) {
   res.render('error.hbs');
 }
-
 module.exports = {
   renderHome,
   rendercontact,

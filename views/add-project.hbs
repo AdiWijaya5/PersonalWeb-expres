@@ -1,7 +1,7 @@
-{{#>layout title="Add Project"}}
+{{#>layout title="Add Project" users=users}}
     <main>
       <section class="blog-form">
-        <form action="/myproject" method="post"  class="container-form">
+        <form action="/myproject" method="post" class="container-form" enctype="multipart/form-data">
           <h1 class="section-title">ADD MY PROJECT</h1>
           <div class="from-field">
             <label for="input-project-title" class="form-label"
@@ -16,7 +16,7 @@
               required
             />
           </div>
-          {{!-- <div class="column">
+          <div class="column">
             <div class="input-box">
               <label for="input-blog-date-start" class="form-label"
                 >Start Date</label
@@ -41,7 +41,7 @@
                 required
               />
             </div>
-          </div> --}}
+          </div>
           <div class="from-field">
             <label class="form-label" for="input-project-content"
               >Description</label
@@ -64,11 +64,11 @@
                 <input
                   class="checkbox"
                   type="checkbox"
-                  id="agular"
-                  name="agular"
-                  value="Agular"
+                  id="angular"
+                  name="angular"
+                  value="Angular"
                 />
-                <label for="Agular">Agular</label><br />
+                <label for="angular">angular</label><br />
                 <input
                   class="checkbox"
                   type="checkbox"
@@ -92,7 +92,7 @@
                   type="checkbox"
                   id="vueJs"
                   name="vueJs"
-                  value="vueJs"
+                  value="VueJs"
                 />
                 <label for="vueJs"> Vue Js</label><br />
               </div>
@@ -100,17 +100,20 @@
             </div>
           <div class="from-field">
             <label for="input-project-image" class="form-label"
-              >Upload Image</label
-            >
+              >Upload Image</label>
+              {{!-- preview --}}
+          <div class="mt-2">
+            <img id="preview" src="#" class="img-thumbnail d-none" style="max-height: 150px;">
+          </div>
             <div class="input-blog-image-group">
-              <label for="input-project-image">
+              <label for="image">
                 <p>choose</p>
                 <img class="fileImg" src="/assets/img/file.png" />
               </label>
               <input
-                id="input-project-image"
+                id="image"
                 name="image"
-                class="form-input"
+                class="form-control"
                 type="file"
                 placeholder="title"
                 hidden
@@ -119,11 +122,22 @@
           </div>
 
           <div class="button-group">
-            <button onclick="buttonsaveadd()" class="from-submit-button" type="submit">submit</button>
+            <button class="from-submit-button" type="submit">submit</button>
           </div>
         </form>
       </section>
-    </main>
+      <script src="/assets/javascript/image-preview.js"></script>
      <script src="/assets/javascript/btn.js" ></script>
     <script src="/assets/javascript/sweetalert.min.js" ></script>
+     {{#if messages.error}}
+            <script>
+                alertError('{{messages.error}}')
+            </script>
+        {{/if}}
+        {{#if messages.success}}
+            <script>
+                alertSuccess('{{messages.success}}')
+            </script>
+        {{/if}}
+    </main>
 {{/layout }}

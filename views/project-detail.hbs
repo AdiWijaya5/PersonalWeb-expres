@@ -1,29 +1,56 @@
-{{#>layout title="Project Detail" }}
+{{#>layout title="Project Detail" users=users}}
 <main>
   <section class="blogdetail-container">
-     <div class='project-detail-content' style="max-width: 840px;">
+     {{!-- <div class='project-detail-content' style="max-width: 840px;">
       <div class="row g-0">
     <div class="col-md-4">
-      <img src="/assets/img/{{ data.image }}" class="project-img img-fluid rounded-start"  alt="image-poject">
+      <img src="{{ data.image }}" class="project-img img-fluid rounded-start"  alt="image-poject">
     </div>
     <div class="col-md-8">
       <div class="card-body" style="gap: 20px;">
         <h5 class="card-title">{{data.title}}</h5>
+          <h6>Di Uplode Oleh : {{data.user.username}}</h6>
+          <p>Dibikin Pada: {{data.startDate }} - {{data.endDate}}</p>
           <p class="card-text">{{data.content}}</p>
           <p>{{formatDateToWIB data.createdAt}} </p>
         <div class="card-text">
           <div class="icone-f">
             {{ data.teknologi  }}
-          {{!-- <i class="fa-brands fa-js"></i>
-          <i class="fa-brands fa-angular"></i>
-          <i class="fa-brands fa-react"></i>
-          <i class="fa-brands fa-vuejs"></i> --}}
           </div>
           </div>
       </div>
     </div>
-  </div>
-
+  </div> --}}
+  	<article class="postcard dark blue">
+				<img class="postcard__img" src={{ data.image }} alt="Image Title" />
+			</a>
+			<div class="postcard__text">
+				<h1 class="postcard__title blue">{{data.title}}</h1>
+				<div class="postcard__subtitle small">
+          	<div class="postcard__preview-txt">Di Upload Oleh : {{data.user.username}}</div>
+				</div>
+				<div class="postcard__bar"></div>
+				<div class="postcard__preview-txt">{{data.content}}</div>
+         <div class="icone-f">
+          {{#if angular}}
+            <i class="fa-brands fa-angular"></i>
+          {{/if}}
+          {{#if nodeJs}}
+            <i class="fa-brands fa-js"></i>
+          {{/if}}
+          {{#if react}}
+              <i class="fa-brands fa-react"></i>
+          {{/if}}
+          {{#if vueJs}}
+            <i class="fa-brands fa-vuejs"></i>
+          {{/if}}
+        </div>
+         <div>Dibikin Pada: {{data.startDate }} - {{data.endDate}}</div>
+        <time datetime="2020-05-25 12:00:00">
+						<i class="fas fa-clock mr-2"></i> upload: {{formatDateToWIB data.createdAt}}
+					</time>
+			</div>
+		</article>
 
 
 
