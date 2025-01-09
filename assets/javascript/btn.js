@@ -103,7 +103,7 @@ function buttonlogout() {
   }).then((result) => {
     if (result.value) {
       Swal.fire({
-        title: 'log out',
+        title: 'log out ',
         text: 'success',
         position: 'center',
         icon: 'success',
