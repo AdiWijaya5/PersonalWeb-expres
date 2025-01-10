@@ -147,7 +147,7 @@ nav a {
   font-size: 25px;
   font-family: 'Poppins', sans-serif;
   text-transform: uppercase;
-  background: linear-gradient(to right, #e4d82f 0%, #f3e700 100%);
+  background: linear-gradient(to right, #f3e700 0%, #ffffff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   position: relative;
@@ -215,40 +215,6 @@ nav a {
   background-color: #fff100;
   border-radius: 5px;
 }
-/* .button:hover {
-  margin: 10px;
-  padding: 7px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  background-color: #fff100;
-  font-family: 'Poppins', sans-serif;
-  border: 1px solid #fff100;
-} */
-/* .button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-.button span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.button:hover span {
-  padding-right: 25px;
-}
-
-.button:hover span:after {
-  opacity: 1;
-  right: 0;
-} */
 h5 {
   text-align: center;
   font-family: 'Poppins';
@@ -924,25 +890,35 @@ hr {
 
 /* From login */
 
-.card-login {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 2);
+.card-login-cr {
+  background-color: transparent;
 }
 .btn-color {
-  background-color: #3b48b8;
-  color: #fff;
+  color: #fff100;
+  font-family: 'Poppins', sans-serif;
+  border: 1px solid #fff100;
 }
 .btn-color:hover {
-  background-color: #0414a7;
-  color: #fff;
+  color: black;
+  font-weight: bold;
+  background-color: #fff100;
+  font-family: 'Poppins', sans-serif;
+  border: 1px solid #fff100;
 }
 
 .profile-image-pic {
+  background-color: transparent;
   height: 200px;
   width: 200px;
   object-fit: cover;
 }
 
-.cardbody-color {
+.cardbody-color-cr {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5.7px);
+  -webkit-backdrop-filter: blur(5.7px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   background-color: #ebf2fa;
 }
 

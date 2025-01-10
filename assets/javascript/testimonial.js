@@ -48,9 +48,9 @@ const testimonialsHTML = (daftarTestimoni) => {
               <img src="assets/img/${testimonial.image}" class="card-img-top" alt="..." />
               <div class="card-body px-0">
                 <div class="overflow-scroll" style="height: 50px">
-                  <p class="card-text">${testimonial.content}</p>
+                  <p class="card-text text-white">${testimonial.content}</p>
                 </div>
-                <div class="text-end fw-bold mt-3">
+                <div class="text-end fw-bold mt-3 text-white">
                   <p>- ${testimonial.author}</p>
                   <p>${testimonial.rating}✯</p>
                 </div>

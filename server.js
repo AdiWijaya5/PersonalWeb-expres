@@ -1,7 +1,6 @@
 const express = require('express');
 var session = require('express-session');
 var flash = require('express-flash');
-
 var methodOverride = require('method-override');
 const path = require('path');
 const hbs = require('hbs');
@@ -26,20 +25,20 @@ const {
   // renderLogin,
 } = require('./controllers/controllers');
 const {
+  authRegister,
+  authLogin,
   renderLogin,
   renderRegister,
   renderHome,
   rendermyproject,
   renderaddproject,
-  renderProjectDetail,
-  deletProject,
-  authRegister,
-  authLogin,
-  rendertestimonial,
-  authLogout,
   addBlog,
   renderEditProject,
   updateProject,
+  deletProject,
+  renderProjectDetail,
+  rendertestimonial,
+  authLogout,
   rendercontact,
   renderaddcontact,
   rendererror,
@@ -84,20 +83,15 @@ app.get('/login', renderLogin);
 app.get('/register', renderRegister);
 app.post('/login', authLogin);
 app.post('/register', authRegister);
-
 app.get('/logout', authLogout);
-
 app.get('/', renderHome);
-
 app.get('/myproject', rendermyproject);
 app.get('/project-detail/:id', renderProjectDetail);
-
 app.post('/myproject', upload.single('image'), addBlog);
 app.get('/add-project', renderaddproject);
 app.get('/edit-project/:id', renderEditProject);
 app.patch('/update-project/:id', upload.single('image'), updateProject);
 app.delete('/delet-project/:id', deletProject);
-
 app.get('/addcontact', renderaddcontact);
 app.get('/contact', rendercontact);
 app.get('/testimonial', rendertestimonial);
