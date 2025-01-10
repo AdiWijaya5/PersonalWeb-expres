@@ -1,6 +1,6 @@
 const { formatDateToWIB } = require('../utils/time');
 const { Sequelize, QueryTypes, Model, where } = require('sequelize');
-const config = require('../config/config.json');
+const config = require('../config/config');
 const bcrypt = require('bcrypt');
 var fs = require('fs');
 const path = require('path');
@@ -10,7 +10,11 @@ const { request } = require('http');
 
 const saltRounds = 10;
 
-const sequelize = new Sequelize(config.development);
+require('dotenv').config();
+
+const environment = process.env.NODE_ENV;
+
+const sequelize = new Sequelize(config[environment]);
 
 async function authRegister(req, res) {
   const { username, email, password } = req.body;
