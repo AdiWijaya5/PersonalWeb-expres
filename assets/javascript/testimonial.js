@@ -6,6 +6,12 @@ let testimonials = [
     image: 'bog-img.png',
   },
   {
+    author: 'Moh Ali',
+    rating: 1,
+    content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+    image: 'bog-img.png',
+  },
+  {
     author: 'Adam',
     rating: 4,
     content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',

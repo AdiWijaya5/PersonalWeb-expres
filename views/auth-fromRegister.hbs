@@ -1,24 +1,4 @@
-
-<html lang='en'>
-  <head>
-    <meta charset='utf-8' />
-    <meta name='viewport' content='width=device-width, initial-scale=1' />
-    <title>Personal Web | Register</title>
-    <link rel='icon' href='/assets/img/nm-bg.png' />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  </head>
-    <link rel='stylesheet' href='/assets/css/style.css' />
-    <link
-      rel='stylesheet'
-      href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css'
-      integrity='sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=='
-      crossorigin='anonymous'
-      referrerpolicy='no-referrer'
-    />
-    
-  </head>
-  <body>
-    
+{{#>layout title="Register"}}
     <div class="container">
     <div class="row">
       <div class="col-md-6 offset-md-3">
@@ -34,7 +14,7 @@
             </div>
             <div class="mb-3">
               <input type="email" class="form-control" id="email" name="email" 
-                placeholder="Email">
+                placeholder="email@example.com">
             </div>
             <div class="mb-3">
               <input type="password" class="form-control" id="password" name="password"  placeholder="Password">
@@ -62,6 +42,5 @@
                 alertSuccess('{{messages.success}}')
             </script>
         {{/if}}
-  </body>
-</html>
+{{/layout}}
 

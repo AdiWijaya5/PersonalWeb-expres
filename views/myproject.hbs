@@ -2,7 +2,7 @@
     <main>
       <section class="mb-5">
         <div class=" container text-center">
-        <h1 class='text-center'style="  font-family: 'Poppins', sans-serif; color: #ea1d6f; ">MY PROJECT</h1>  
+        <h1 class='text-center'style="margin-top: 10px;  font-family: 'Poppins', sans-serif; color: white; ">MY PROJECT</h1>  
         {{#if users}}
         <a id="btnAdd" class="My-circle" href="/add-project"><span>New Blog</span></a>
         {{/if}}
@@ -10,26 +10,26 @@
         <div id="blogList" class="container-fluid mx-auto px-5 mt-4 row row-cols-md-3">
           {{#each projects}}
           <div id="${i}" class="d-flex justify-content-center my-3">
-            <div class="card p-3 col mx-0" style="background-color: #d9e2f0;">
+            <div class="card p-3 col mx-0" >
               <img src="{{ this.image }}" class="card-img-top" style="height: 200px;" alt="project-image" />
                 <div class="card-body px-0" >
                    <a href="/project-detail/{{this.id}}" class="blog-item-title fw-bold">
                    {{this.title}} - {{ this.user.username}}
                   </a>
-                  <p >{{formatDateToWIB this.createdAt}}</p>
+                  <p style="color: white;" >{{formatDateToWIB this.createdAt}}</p>
                   <div>
                   <p class="blog-text-content">
                     {{truncateText this.content}}
                   </p>
                   </div>
                   <div class="text-start">
-                   <div class="icone-f">
+                   <div class="icone-f" style="color: white;">
                     {{ this.teknologi}}
                   </div>
                   <div class="text-end">
-                  <p class="relative-time" style=" text-align: right;">
+                  <p class="relative-time" style="font-family: 'Poppins', sans-serif; text-align: right; color:  rgb(170, 169, 169)">
                    {{getRelativeTime this.updatedAt}}
-                  <p style=" text-align: right;" > Last edit : {{formatDateToWIB this.updatedAt}}</p>
+                  <p style=" text-align: right;  font-family: 'Poppins', sans-serif; color: white;" > Last edit : {{formatDateToWIB this.updatedAt}}</p>
                   </div>
                   </p>
                   </div>

@@ -18,19 +18,30 @@ async function authRegister(req, res) {
   const hashedPassword = await bcrypt.hash(password, saltRounds);
 
   if (!username) {
-    req.flash('error', 'username tidak boleh kosong');
+    req.flash('error', 'Username Tidak Boleh Kosong');
     return res.redirect('/register');
   }
   if (!email) {
-    req.flash('error', 'email tidak boleh kosong');
+    req.flash('error', 'Email Tidak Boleh Kosong');
     return res.redirect('/register');
   }
+
+  const mail = await User.findOne({
+    where: {
+      email,
+    },
+  });
+  if (mail) {
+    req.flash('error', 'Email Sudah Terdaftar Silakan Masukan Email Yang Baru');
+    return res.redirect('/register');
+  }
+
   if (!password) {
-    req.flash('error', 'user tidak boleh kosong');
+    req.flash('error', 'Password Tidak Boleh Kosong');
     return res.redirect('/register');
   }
   if (password.length < 6 || password.length > 12) {
-    req.flash('error', 'Password Harus Memiliki minimal 6 character dan maksimal 12 character');
+    req.flash('error', 'Password Harus Memiliki Minimal 6 Character dan Maksimal 12 Character');
     return res.redirect('/register');
   }
   await User.create({
@@ -39,7 +50,7 @@ async function authRegister(req, res) {
     password: hashedPassword,
   });
 
-  req.flash('success', 'register success');
+  req.flash('success', 'Register Success');
   res.redirect('/login');
 }
 
@@ -70,7 +81,7 @@ async function authLogin(req, res) {
 
   req.session.users = loginSession;
 
-  req.flash('success', 'login success');
+  req.flash('success', `Login Success, Hai ${loginSession.username}`);
   res.redirect('/');
 }
 
@@ -246,7 +257,7 @@ async function deletProject(req, res) {
     fs.unlink(fullPath, (err) => {});
   }
 
-  console.log('result query delete :', result);
+  // console.log('result query delete :', result);
   //   req.flash('success', 'Berhasil Menghapus Data Project');
   res.redirect('/myproject');
 }
